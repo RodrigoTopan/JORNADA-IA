@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="I.A,inteligência artificial, tensorflow, redes neurais, aprendizado de máquina, machine learning">
+    <meta name="author" content="Rodrigo Garcia Topan Moreira">
+    <meta name="description" content="Instalação do Tensorflow">
+    <title>Instalação</title>
+    <link rel="stylesheet" type="text/css" href="css/projeto.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url('img/b1.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+	  <header>
+	  <div class="container">
+		 <div class="pos-f-t fixed-top">
+			  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  	<a class="navbar-brand" href="index.php">JORNADA I.A</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="index.html">Principal<span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="introducao.html">Introdução</a>
+				      </li>
+		              <li class="nav-item">
+		                <a class="nav-link" href="instalacao.html">Instalação</a>
+		              </li>				      
+				      <li class="nav-item">
+				        <a class="nav-link" href="admNoticias/montador.php">Materiais</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</header>
+		<div class="container-fluid col-md-11 col-sm-12">
+		<br><br><br>
+		 <main role="main">
+		     <BR>
+		     <section id="intro-machine-learning">
+		     	<div class="card">
+				  <div class="card-body">
+				    <H2 class="display-4" align="center">Como Instalar</H2>
+				  <hr>
+				  </div>
+				  <H3 align="center">Antes de começar a ler os materiais (Instalar o Tensorflow)</H3><br>
+				  <div class="col-md-6" style="background-color: white;margin-left: 20%;" align="justify">
+						
+						<p>
+						 
+						<h4>Como eu fiz:</h4>
+					    <br>
+					    <b>No terminal do Ubuntu</b> 
+					     <ol>
+					     <li>Baixar pip.Usar esse comando para python 2.7<br> 
+					       sudo apt-get install python-pip python-dev<br>
+					       Usar esse comando para python 3<br>
+					       sudo apt-get install python3-pip python3-dev
+					    </li>
+					    <br>
+					       <li>
+							Instalar o tensorflow via pip<br> 
+							Para python 2.7 <br>
+							pip install tensorflow<br> 
+							Para python 3<br>
+							pip3 install tensorflow<br>
+							</li>
+						</ol>
+						DENTRO DO PYTHON, TESTAR O TENSORFLOW <br>
+						PARA ENTRAR NO PYTHON: DIGITE <b>PYTHON</b> NO TERMINAL DO UBUNTU, DEPOIS<br> 
+						import tensorflow as tf hello = tf.constant('Hello, TensorFlow!') sess = tf.Session() print(sess.run(hello))<BR>
+						Se exibir <B>Hello, TensorFlow</B>, foi instalado corretamente!
+						</p>
+						<hr>
+						<H5>Mais informações em:</H5>
+						<p>
+						   https://www.tensorflow.org/install/<br>
+						</p>
+					</div>
+				</div>
+		     </section>
+		     <br>
+		    </main>
+	      <br>
+    	</div>
+	    <footer class="footer">
+	    
+			  <div class="jumbotron jumbotron-fluid" style="background-color: black;">
+				 <div class="container">
+				  <div class="row">
+				    <div class="col-md-12 col-sm-12">
+				            <h4 class="text-white">Contato</h4>
+		        		    <ul class="list-unstyled">
+		              				<li><a href="https://www.facebook.com/rodrigo.topan.7" class="text-white">Facebook:Rodrigo Topan</a></li>
+		              				<li class="text-white">Email: rodrigo.topan.ti@gmail.com</li>
+		              				<li><a href="https://github.com/RodrigoTopan">GitHub:https://github.com/RodrigoTopan</a></li>
+		            		</ul>
+		             </div>
+				    </div>
+			 	 </div>
+			</div>
+		
+	    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
