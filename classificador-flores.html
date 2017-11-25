@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="I.A,inteligência artificial, tensorflow, redes neurais, aprendizado de máquina, machine learning">
+    <meta name="author" content="Rodrigo Garcia Topan Moreira">
+    <meta name="description" content="Classificador de Imagens">
+    <title>Classificador de Flores</title>
+    <link rel="stylesheet" type="text/css" href="css/projeto.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url('img/b1.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+	  <header>
+	  <div class="container">
+		 <div class="pos-f-t fixed-top">
+			  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  	<a class="navbar-brand" href="index.php">JORNADA I.A</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="index.html">Principal<span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item active">
+				        <a class="nav-link" href="introducao.html">Introdução</a>
+				      </li>
+		              <li class="nav-item">
+		                <a class="nav-link" href="instalacao.html">Instalação</a>
+		              </li>				      
+				      <li class="nav-item">
+				        <a class="nav-link" href="materiais.html">Materiais</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</header>
+		<div class="container-fluid col-md-11 col-sm-12">
+		<br><br><br>
+		 <main role="main">
+
+			<section id="intro">
+				<div class="card">
+				  <div class="card-body">
+				    <H1 class="display-4" align="center">Classificador de flores</H1>
+				  <hr>
+				  </div>
+					<div class="col-md-12" style="background-color: white;" align="justify">
+						<H3>PRIMEIRO CONTATO COM TENSORFLOW</H3><br>
+						<iframe width="100%" height="415" src="https://www.youtube.com/embed/cSKfRcEDGUs" frameborder="0" allowfullscreen></iframe>
+						<h3>NO TERMINAL DO UBUNTU</h3>
+						<hr>
+						</p>
+						<ol>
+							<li>
+								<p>
+								<b>Clonar git</b><br>
+								-Talvez você precise instalar o comando git através do apt-get instal<br>
+								git clone https://github.com/googlecodelabs/tensorflow-for-poets-2<br>
+								</p>
+							</li><hr>
+							<li>
+								<p>
+									<b>mudar o diretório para tensorflow-for-poets</b><br>
+									cd tensorflow-for-poets-2<br>
+								</p>
+							</li><hr>
+							<li>
+								<p>
+								<b>Fazer download da coleção de fotos desse dataset de flores</b><br>
+								-Talvez você precise usar o apt-get install para o comando curl<br>
+								curl http://download.tensorflow.org/example_images/flower_photos.tgz \<br>
+								    | tar xz -C tf_files<br>
+								 </p>
+							</li><hr>
+							<li>
+								<p>
+								<b>Confirmar que as fotos foram baixadas</b><br>
+								ls tf_files/flower_photos<br>
+
+								//Esse comando deve retornar a seguinte saída
+								daisy/<br>
+								dandelion/<br>
+								roses/<br>
+								sunflowers/<br>
+								tulip/<br>
+								LICENSE.txt<br>
+								</p>
+							</li><hr>
+							<li>
+								<p>
+									<b>Iniciar o tensorboard através desse comando</b><br>
+									tensorboard --logdir tf_files/training_summaries &<br>
+									//O seguinte erro significa que você já está com o tensorboard aberto<br>
+									ERROR:tensorflow:TensorBoard attempted to bind to port 6006, but it was already in use
+								</p>
+							</li><hr>
+							<li>
+								<p>
+								<b>Configurar o MOBILENET com o tamanho das fotos que ele receberá e o tamanho do modelo</b><br>
+								//Através destes comandos<br>
+								IMAGE_SIZE=224<br>
+								ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}"<br>
+								<br>
+								Existem dois modelos de classificadores de imagens famosos: o Inception e o MobileNet.<br>
+								Ambos são redes que já foram treinadas. Mas, utilizando uma técnica chamada de Retraining ou Transfêrencia de Aprendizado<br>
+								podemos utilizar conhecimentos já aprendidos e configurálos para atender nossas necessidades de classificação atuais.<br> 
+								Ps: essa técnica consiste em treinar apenas a última camada da rede neural, mantendo os milhares de parâmetros aprendidos pelo modelo escolhido. 
+								</p>
+							</li><hr>
+							<li>
+								<p>
+								<b>Retreinar Modelo de Rede Neural</b><br><br>
+								Esse código python (DENTRO DO PYTHON) executa o script do retreinamento e configura a última camada da rede neural para classificar flores usando as fotos que você baixou <br>
+
+								python -m scripts.retrain \<br>
+								  --bottleneck_dir=tf_files/bottlenecks \<br>
+								  --how_many_training_steps=500 \<br>
+								  --model_dir=tf_files/models/ \<br>
+								  --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}" \<br>
+								  --output_graph=tf_files/retrained_graph.pb \ <br>
+								  --output_labels=tf_files/retrained_labels.txt \ <br>
+								  --architecture="${ARCHITECTURE}" \ <br>
+								  --image_dir=tf_files/flower_photos <br>
+								 </p>
+							</li><hr>
+							<li>
+								<p><b>Classificar Foto</b><br>
+								Para Classificar uma foto existente em um dos diretórios de treino. Executar esse script<br>
+								<br>
+								python -m scripts.label_image \<br>
+								    --graph=tf_files/retrained_graph.pb  \<br>
+								    --image=tf_files/flower_photos/daisy/21652746_cc379e0eea_m.jpg<br>
+								<br>
+								//Repare na última linha. Esta, está apontando o caminho até a foto que se deseja classificar
+								</p>
+							</li>
+						</p>
+						<hr>
+						<p align="left">
+						Fontes: <br>
+						https://www.youtube.com/watch?v=cSKfRcEDGUs&t=257s
+						https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/?utm_campaign=chrome_series_machinelearning_063016&utm_source=gdev&utm_medium=yt-desc#4
+						</p>
+					</div>
+				</div>
+		    </section>
+		    </main>
+	      <br>
+    	</div>
+	    <footer class="footer">
+	    
+			  <div class="jumbotron jumbotron-fluid" style="background-color: black;">
+				 <div class="container">
+				  <div class="row">
+				    <div class="col-md-12 col-sm-12">
+				            <h4 class="text-white">Contato</h4>
+		        		    <ul class="list-unstyled">
+		              				<li><a href="https://www.facebook.com/rodrigo.topan.7" class="text-white">Facebook:Rodrigo Topan</a></li>
+		              				<li class="text-white">Email: rodrigo.topan.ti@gmail.com</li>
+		              				<li><a href="https://github.com/RodrigoTopan">GitHub:https://github.com/RodrigoTopan</a></li>
+		            		</ul>
+		             </div>
+				    </div>
+			 	 </div>
+			</div>
+		
+	    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
