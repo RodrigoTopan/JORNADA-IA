@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="I.A,inteligência artificial, tensorflow, redes neurais, aprendizado de máquina, machine learning">
+    <meta name="author" content="Rodrigo Garcia Topan Moreira">
+    <meta name="description" content="Introdução ao Tensorflow">
+    <title>Introdução</title>
+    <link rel="stylesheet" type="text/css" href="css/projeto2.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url('img/b1.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+	  <header>
+	  <div class="container">
+		 <div class="pos-f-t fixed-top">
+			  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  	<a class="navbar-brand" href="index.php">JORNADA I.A</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="index.html">Principal<span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="introducao.html">Introdução</a>
+				      </li>
+		              <li class="nav-item">
+		                <a class="nav-link" href="instalacao.html">Instalação</a>
+		              </li>				      
+				      <li class="nav-item active">
+				        <a class="nav-link" href="estrutura.html">Estrutura TF</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="materiais.html">Materiais</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</header>
+		<div class="container-fluid col-md-11 col-sm-12">
+		<br><br><br>
+		 <main role="main">
+		     <section id="intro-machine-learning">
+		     	<div class="card">
+				  <div class="card-body">
+				    <H2 class="display-5" align="LEFT">Começando TensorFlow</H2>
+				  <hr>
+				  </div>
+				  <div class="col-md-12" style="background-color: white;">
+						<H3>Resumo do Guia do TensorFlow e </H3><br>
+						
+
+<h4>Conceitos TensorFlow</h4>
+<h5> Teoria dos Grafos</h5>
+<p>
+	A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto. 
+	Dependendo da aplicação, arestas podem ou não ter direção, pode ser permitido ou não arestas ligarem um vértice a ele próprio e vértices e/ou arestas podem ter um peso (numérico) associado.
+	Se as arestas têm uma direção associada (indicada por uma seta na representação gráfica) temos um dígrafo (grafo orientado).
+</p>
+<p>
+	 Podemos dividir entre estruturas do tipo lista e do tipo matriz, mas em aplicações reais, a melhor estrutura é uma combinação de ambas. Estruturas do tipo lista são frequentemente usadas em grafos esparsos (grafos que possuem um pequeno número de arestas em relação ao número de vértices, oposto ao grafo denso, onde o número de arestas se aproxima do máximo de arestas possível) já que exigem menor uso da memória. Por outro lado, estruturas do tipo matriz fornecem um rápido acesso em algumas aplicações, mas podem consumir uma grande quantidade de memória.
+</p>
+<p>
+	Estruturas do tipo lista incluem a lista de adjacência que associa a cada vértice do grafo uma lista de todos os outros vértices com os quais ele tem uma aresta e a lista de incidência, que armazena para cada vértice uma lista de objetos que representam as arestas incidentes a esse vértice[7][8].</p>
+<p>
+	Estruturas do tipo matriz incluem a matriz de incidência, uma matriz de 0's e 1's com suas linhas representando vértices e suas colunas as arestas e a matriz de adjacência onde ambas linhas e colunas possuem vértices. Em ambos casos um 1 indica dois objetos adjacentes e 0 indica dois objetos não adjacentes.
+</p>
+<hr>
+<h5>APIs</h5>
+<p>O TensorFlow fornece várias APIs. A API de nível mais baixo se chama TensorFlow Core. Ela cai bem para cientistas de dados que precisam refinar muito seus dados.<br>
+As APIs de nível mais alto são boas para tarefas repetitivas, são mais fáceis de aprender e ajudam a gerenciar conjuntos de dados, estimadores e treinamentos.Ex: tf.estimator</p>
+<hr>
+<h5>Um Tensor</h5>
+
+<p>A principal estrutura do Tensorflow é um tensor. Basicamente, um tensor consiste em um conjunto de valores primitivos dentro de uma matriz de qualquer dimensão. O rank de tensores é o seu número de dimensões da matriz.<br>
+[1.,2.,3.] rank 1<br>
+[[1.,2.,3.], [4., 5., 6.]] rank 2<br>
+A estrutura do tensorflow core é comparada a um grafo de nós.
+</p>
+<hr>
+<h5>Declarando Constantes (NÓS)</h5>
+<p>
+Cada nó recebe zero ou mais tensores como entradas e produz um único tensor como saída
+Obs: um nó é uma constante(constant) e as constantes não precisam de valores de entrada
+</p>
+<hr>
+<h5>Imprimir valores dos nós(nodes)</h5>
+<p>
+Imprimir nós(nodes) não exibe os valores deles.<br>
+Para enxergar o valor dos nós temos que executar o print deles rodando dentro de uma sessão(Session)
+</p>
+<hr>
+<h5>Combinações e calculos</h5>
+<p>
+Podemos combinar tensores aos nós com operações (que também são nós)
+</p>
+<hr>
+<h5>TensorBoard</h5>
+<p>
+O Tensorflow possui um utilitário que pode exibir imagens do gráfo
+</p>
+<hr>
+<h5>Espaços Reservados (Placeholders)</h5>
+<p>
+Através da função placeholder,
+atribuimos um espaço de memória reservado a uma variavel que deve ser alimentada posteriormente.
+</p>
+<hr>
+<h5>Somando</h5>
+<p>
+Podemos somar nós e varíaveis de dois jeitos:<br>
+c_node = a + b<br>
+tf.add(a,b)
+</p>
+						<hr>
+						<H5>Fontes:</H5>
+						<p>
+						  https://www.tensorflow.org/get_started/get_started
+						</p>
+					</div>
+				</div>
+		     </section>
+		     <br>
+			<section id="intro">
+				<div class="card">
+				  <div class="card-body">
+				    <H1 class="display-6" align="left">Comandos Básicos</H1>
+				  <hr>
+				  </div>
+					<div class="col-md-12" style="background-color: white;">
+						<H3></H3><br>
+						<ul>
+							<li>import tensorflow as tf</li>
+								Importa o tensorflow para ser executado junto com o projeto em python
+							<li>node1 = tf.constant(3.0, dtype=tf.float32)</li>
+								Declara uma constante, que também é um nó(node)
+							<li>print(node1, node2)</li>
+								Exibe o nó e o seu tipo de dado com que trabalha na tela
+							<li>sess = tf.Session()</li>
+								Cria uma sessão e armazena em uma varíavel
+							<li>print(sess.run([node1, node2]))</li>
+								Exibe na tela os valores dentro de cada nó
+						</ul>
+						<H4>Fontes:</H4>
+						<p>
+						   http://www.cienciaedados.com/big-data-deep-learning-google-tensorflow/<br>
+						</p>
+					</div>
+				</div>
+		    </section>
+		    </main>
+	      <br>
+    	</div>
+	    <footer class="footer">
+	  
+			  <div class="jumbotron jumbotron-fluid" style="background-color: black;">
+				 <div class="container">
+				  <div class="row">
+				    <div class="col-md-12 col-sm-12">
+				            <h4 class="text-white">Contato</h4>
+		        		    <ul class="list-unstyled">
+		              				<li><a href="https://www.facebook.com/rodrigo.topan.7" class="text-white">Facebook:Rodrigo Topan</a></li>
+		              				<li class="text-white">Email: rodrigo.topan.ti@gmail.com</li>
+		              				<li><a href="https://github.com/RodrigoTopan">GitHub:https://github.com/RodrigoTopan</a></li>
+		            		</ul>
+		             </div>
+				    </div>
+			 	 </div>
+			</div>
+		
+	    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
