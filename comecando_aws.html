@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="I.A,inteligência artificial, tensorflow, redes neurais, aprendizado de máquina, machine learning">
+    <meta name="author" content="Rodrigo Garcia Topan Moreira">
+    <meta name="description" content="Introdução ao Tensorflow">
+    <title>AWS</title>
+    <link rel="stylesheet" type="text/css" href="css/projeto2.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url('img/b1.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+	  <header>
+	  <div class="container">
+		 <div class="pos-f-t fixed-top">
+			  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  	<a class="navbar-brand" href="index.php">JORNADA I.A</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="index.html">Principal<span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="introducao.html">Introdução</a>
+				      </li>
+		              <li class="nav-item">
+		                <a class="nav-link" href="instalacao.html">Instalação</a>
+		              </li>				      
+				      <li class="nav-item">
+				        <a class="nav-link" href="estrutura.html">Estrutura TF</a>
+				      </li>
+				      <li class="nav-item dropdown active">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          AWS
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="webservices.html">Introdução à Web Services</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="aws_ia.html">AWS e I.A</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="comecando_aws.html">Primeiro ML no AWS</a>
+				        </div>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="materiais.html">Materiais</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</header>
+		<div class="container-fluid col-md-11 col-sm-12">
+		<br><br><br>
+		 <main role="main">
+		     <section id="intro-machine-learning">
+		     	<div class="card">
+				  <div class="card-body">
+				    <H2 class="display-5" align="LEFT"> WEB SERVICES</H2>
+				  <hr>
+				  </div>
+				  <div class="col-md-12" style="background-color: white;">
+						<H3>Resumo do Guia de ML da Amazon Web Services </H3><br>
+						
+
+							<h5>Para que serve</h5>
+							<p>
+							Com o Amazon Machine Learning(Amazon ML), você pode criar e treinar modelos preditivos e hospedar seus aplicativos em uma solução em nuvem escalável em apenas 4 etapas:
+								<ul>
+									<li>Criar fonte de dados</li>
+									<li>Criar fonte de dados de treinamento</li>
+									<li>Criar um modelo de ml</li>
+									<li>Usar o modelo para gerar previsões</li>
+								</ul>
+							</p>
+							<hr>
+							<h5>Criar Fonte de dados</h5>
+							<p>
+							Em aprendizagem de máquina, você geralmente obtém os dados e garantem o formato adequado antes de treinar o seu modelo.
+							<br>
+							<ul>
+							<li>Fazer download do dataset</li>
+							https://s3.amazonaws.com/aml-sampledata/banking.csv<br>
+							salvar como .csv<br>
+							<hr>
+							<li>Fazer o download do arquivo que usaremos para o teste do modelo</li>
+							 https://s3.amazonaws.com/aml-sample-data/banking-batch.csv<br>
+							Salve-o com o nome banking-batch.csv
+							<hr>
+							</p>
+							</ul>
+							<p>
+							Você quer que o modelo de ML responda à pergunta "O cliente se inscreverá no meu novo produto?".
+							No conjunto de dados banking.csv, a resposta a essa pergunta é o atributo y, que contém os
+							valores 1 (para sim) ou 0 (para nenhum). O atributo que você deseja que o Amazon ML saiba como
+							prever é chamado de atributo de destino.
+							</p>
+							<hr>
+							<p>
+							Em seguida, faça upload dos arquivos banking.csv e banking-batch.csv para o Amazon S3.
+							Para fazer upload dos arquivos para um local do Amazon S3
+							</p>
+							<p>
+								<ul>
+									<li>1. Faça login no Console de gerenciamento da AWS e abra o console da Amazon S3 em https://
+									console.aws.amazon.com/s3/.</li>
+									<li>2. Na lista All Buckets, crie um bucket ou escolha o local onde você deseja fazer upload dos arquivos.</li>
+									<li>3. Na barra de navegação, escolha Upload.</li>
+									<li>4. Escolha Adicionar arquivos.</li>
+									<li>5. Na caixa de diálogo, navegue até a área de trabalho, escolha banking.csv e bankingbatch.csv;
+									por fim, escolha Open.</li>
+								</ul>
+							</p>
+							<hr>
+							<h5>Etapa 2: Criar uma fonte de dados de treinamento</h5>
+								<p>Para isso, basta você ir no seu console aws, procurar o serviço Machine Learninng, acionar a opção criar novo datasource e novo modelo, informar onde está armazenado a sua fonte de dados (no seu bucket).<br>
+								Após realizar o processo, você pode pedir que a aws faça uma inferência dos dados que ela coletou do seu bucket. Uma inferência significa verificar os tipos e nomes dos atributos do banco de dados.
+								</p>
+							<hr>
+							<h5>Etapa 3: criar um modelo de ML</h5>
+							 O modelo de ML é um conjunto de padrões que o Amazon ML
+							encontra nos dados durante o treinamento.<b> Você usa o modelo para criar previsões.</b>
+							<p>
+							<b>Para criar um modelo de ML</b>
+								<ul>
+									<li>1. Como o assistente Get started cria uma fonte de dados de treinamento e um modelo, o Amazon
+									Machine Learning (Amazon ML) usa automaticamente a fonte de dados de treinamento que você
+									acabou de criar e leva você diretamente para a página ML model settings. 
+									<br>Na página ML model settings, em ML model name, verifique se o ML model: Banking Data 1 padrão é exibido.
+									Usar um nome amigável, como o padrão, ajuda você a identificar e gerenciar facilmente o modelo de
+									ML.</li>
+									<li>2. Em Training and evaluation settings, verifique se Default está selecionado.</li>
+									<li>3. Em Name this evaluation, aceite o padrão, Evaluation: ML model: Banking Data 1.</li>
+									<li>4. Escolha Review, revise as configurações e depois escolha Finish.</li>
+								</ul>
+							</p>
+							<p>
+							Depois que você escolheu Finish, o Amazon ML adiciona o modelo à fila de processamento. Quando o
+							Amazon ML cria o modelo, ele aplica os valores padrão e realiza as seguintes ações:<br>
+							• Divide a fonte de dados de treinamento em duas seções, uma contendo 70% dos dados e outra
+							contendo os 30% restantes<br>
+							• Treina o modelo de ML na seção que contém 70% dos dados de entrada<br>
+							• Avalia o modelo usando os 30% restantes dos dados de entrada<br>
+							</p>
+							<hr>
+							<h5>Etapa 5: Usar o modelo de ML para gerar previsões</h5>
+							<b>Sim, eu pulei a etapa 4 do manual da Amazon.</b>
+							<p>
+							Uma previsão em tempo real é uma previsão para uma única observação que gera o Amazon ML sob
+							demanda. As previsões em tempo real são ideais para aplicativos móveis, sites e outros aplicativos que
+							precisam usar resultados interativamente.
+								<ul>
+									<li>1. No painel de navegação ML model report, escolha Try real-time predictions.</li>
+									<li>2. Escolha Paste a record.</li>
+									<li>3. Na caixa de diálogo Paste a record, cole a seguinte observação.</li>
+									<li>4. Na caixa de diálogo Paste a record, escolha Submit para confirmar que você deseja gerar uma
+									previsão para essa observação. O Amazon ML preenche os valores no formulário de previsão em
+									tempo real.</li>
+									<li>5. Na parte inferior da página, escolha Create prediction.</li>
+									A previsão aparece no painel Prediction results à direita. Essa previsão tem um rótulo previsto
+									especificado em Predicted label como 0, o que significa que esse cliente potencial dificilmente
+									responderá à campanha. Um Predicted label igual a 1 significa que o cliente provavelmente
+									responderá à campanha.
+								</ul>
+							</p>
+						<hr>
+						<H5>Fontes:</H5>
+						<p>
+						 https://docs.aws.amazon.com/pt_br/machine-learning/latest/dg/machinelearning-dg.pdf#tutorial
+						</p>
+					</div>
+				</div>
+		     </section>
+		     <br>
+		    </main>
+	      <br>
+    	</div>
+	    <footer class="footer">
+	  
+			  <div class="jumbotron jumbotron-fluid" style="background-color: black;">
+				 <div class="container">
+				  <div class="row">
+				    <div class="col-md-12 col-sm-12">
+				            <h4 class="text-white">Contato</h4>
+		        		    <ul class="list-unstyled">
+		              				<li><a href="https://www.facebook.com/rodrigo.topan.7" class="text-white">Facebook:Rodrigo Topan</a></li>
+		              				<li class="text-white">Email: rodrigo.topan.ti@gmail.com</li>
+		              				<li><a href="https://github.com/RodrigoTopan">GitHub:https://github.com/RodrigoTopan</a></li>
+		            		</ul>
+		             </div>
+				    </div>
+			 	 </div>
+			</div>
+		
+	    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -35,6 +35,18 @@
 				      <li class="nav-item active">
 				        <a class="nav-link" href="estrutura.html">Estrutura TF</a>
 				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          AWS
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="webservices.html">Introdução à Web Services</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="aws_ia.html">AWS e I.A</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="comecando_aws.html">Primeiro ML no AWS</a>
+				        </div>
+				      </li>				      
 				      <li class="nav-item">
 				        <a class="nav-link" href="materiais.html">Materiais</a>
 				      </li>
@@ -56,68 +68,68 @@
 						<H3>Resumo do Guia do TensorFlow e </H3><br>
 						
 
-<h4>Conceitos TensorFlow</h4>
-<h5> Teoria dos Grafos</h5>
-<p>
-	A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto. 
-	Dependendo da aplicação, arestas podem ou não ter direção, pode ser permitido ou não arestas ligarem um vértice a ele próprio e vértices e/ou arestas podem ter um peso (numérico) associado.
-	Se as arestas têm uma direção associada (indicada por uma seta na representação gráfica) temos um dígrafo (grafo orientado).
-</p>
-<p>
-	 Podemos dividir entre estruturas do tipo lista e do tipo matriz, mas em aplicações reais, a melhor estrutura é uma combinação de ambas. Estruturas do tipo lista são frequentemente usadas em grafos esparsos (grafos que possuem um pequeno número de arestas em relação ao número de vértices, oposto ao grafo denso, onde o número de arestas se aproxima do máximo de arestas possível) já que exigem menor uso da memória. Por outro lado, estruturas do tipo matriz fornecem um rápido acesso em algumas aplicações, mas podem consumir uma grande quantidade de memória.
-</p>
-<p>
-	Estruturas do tipo lista incluem a lista de adjacência que associa a cada vértice do grafo uma lista de todos os outros vértices com os quais ele tem uma aresta e a lista de incidência, que armazena para cada vértice uma lista de objetos que representam as arestas incidentes a esse vértice[7][8].</p>
-<p>
-	Estruturas do tipo matriz incluem a matriz de incidência, uma matriz de 0's e 1's com suas linhas representando vértices e suas colunas as arestas e a matriz de adjacência onde ambas linhas e colunas possuem vértices. Em ambos casos um 1 indica dois objetos adjacentes e 0 indica dois objetos não adjacentes.
-</p>
-<hr>
-<h5>APIs</h5>
-<p>O TensorFlow fornece várias APIs. A API de nível mais baixo se chama TensorFlow Core. Ela cai bem para cientistas de dados que precisam refinar muito seus dados.<br>
-As APIs de nível mais alto são boas para tarefas repetitivas, são mais fáceis de aprender e ajudam a gerenciar conjuntos de dados, estimadores e treinamentos.Ex: tf.estimator</p>
-<hr>
-<h5>Um Tensor</h5>
+							<h4>Conceitos TensorFlow</h4>
+							<h5> Teoria dos Grafos</h5>
+							<p>
+								A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto. 
+								Dependendo da aplicação, arestas podem ou não ter direção, pode ser permitido ou não arestas ligarem um vértice a ele próprio e vértices e/ou arestas podem ter um peso (numérico) associado.
+								Se as arestas têm uma direção associada (indicada por uma seta na representação gráfica) temos um dígrafo (grafo orientado).
+							</p>
+							<p>
+								 Podemos dividir entre estruturas do tipo lista e do tipo matriz, mas em aplicações reais, a melhor estrutura é uma combinação de ambas. Estruturas do tipo lista são frequentemente usadas em grafos esparsos (grafos que possuem um pequeno número de arestas em relação ao número de vértices, oposto ao grafo denso, onde o número de arestas se aproxima do máximo de arestas possível) já que exigem menor uso da memória. Por outro lado, estruturas do tipo matriz fornecem um rápido acesso em algumas aplicações, mas podem consumir uma grande quantidade de memória.
+							</p>
+							<p>
+								Estruturas do tipo lista incluem a lista de adjacência que associa a cada vértice do grafo uma lista de todos os outros vértices com os quais ele tem uma aresta e a lista de incidência, que armazena para cada vértice uma lista de objetos que representam as arestas incidentes a esse vértice[7][8].</p>
+							<p>
+								Estruturas do tipo matriz incluem a matriz de incidência, uma matriz de 0's e 1's com suas linhas representando vértices e suas colunas as arestas e a matriz de adjacência onde ambas linhas e colunas possuem vértices. Em ambos casos um 1 indica dois objetos adjacentes e 0 indica dois objetos não adjacentes.
+							</p>
+							<hr>
+							<h5>APIs</h5>
+							<p>O TensorFlow fornece várias APIs. A API de nível mais baixo se chama TensorFlow Core. Ela cai bem para cientistas de dados que precisam refinar muito seus dados.<br>
+							As APIs de nível mais alto são boas para tarefas repetitivas, são mais fáceis de aprender e ajudam a gerenciar conjuntos de dados, estimadores e treinamentos.Ex: tf.estimator</p>
+							<hr>
+							<h5>Um Tensor</h5>
 
-<p>A principal estrutura do Tensorflow é um tensor. Basicamente, um tensor consiste em um conjunto de valores primitivos dentro de uma matriz de qualquer dimensão. O rank de tensores é o seu número de dimensões da matriz.<br>
-[1.,2.,3.] rank 1<br>
-[[1.,2.,3.], [4., 5., 6.]] rank 2<br>
-A estrutura do tensorflow core é comparada a um grafo de nós.
-</p>
-<hr>
-<h5>Declarando Constantes (NÓS)</h5>
-<p>
-Cada nó recebe zero ou mais tensores como entradas e produz um único tensor como saída
-Obs: um nó é uma constante(constant) e as constantes não precisam de valores de entrada
-</p>
-<hr>
-<h5>Imprimir valores dos nós(nodes)</h5>
-<p>
-Imprimir nós(nodes) não exibe os valores deles.<br>
-Para enxergar o valor dos nós temos que executar o print deles rodando dentro de uma sessão(Session)
-</p>
-<hr>
-<h5>Combinações e calculos</h5>
-<p>
-Podemos combinar tensores aos nós com operações (que também são nós)
-</p>
-<hr>
-<h5>TensorBoard</h5>
-<p>
-O Tensorflow possui um utilitário que pode exibir imagens do gráfo
-</p>
-<hr>
-<h5>Espaços Reservados (Placeholders)</h5>
-<p>
-Através da função placeholder,
-atribuimos um espaço de memória reservado a uma variavel que deve ser alimentada posteriormente.
-</p>
-<hr>
-<h5>Somando</h5>
-<p>
-Podemos somar nós e varíaveis de dois jeitos:<br>
-c_node = a + b<br>
-tf.add(a,b)
-</p>
+							<p>A principal estrutura do Tensorflow é um tensor. Basicamente, um tensor consiste em um conjunto de valores primitivos dentro de uma matriz de qualquer dimensão. O rank de tensores é o seu número de dimensões da matriz.<br>
+							[1.,2.,3.] rank 1<br>
+							[[1.,2.,3.], [4., 5., 6.]] rank 2<br>
+							A estrutura do tensorflow core é comparada a um grafo de nós.
+							</p>
+							<hr>
+							<h5>Declarando Constantes (NÓS)</h5>
+							<p>
+							Cada nó recebe zero ou mais tensores como entradas e produz um único tensor como saída
+							Obs: um nó é uma constante(constant) e as constantes não precisam de valores de entrada
+							</p>
+							<hr>
+							<h5>Imprimir valores dos nós(nodes)</h5>
+							<p>
+							Imprimir nós(nodes) não exibe os valores deles.<br>
+							Para enxergar o valor dos nós temos que executar o print deles rodando dentro de uma sessão(Session)
+							</p>
+							<hr>
+							<h5>Combinações e calculos</h5>
+							<p>
+							Podemos combinar tensores aos nós com operações (que também são nós)
+							</p>
+							<hr>
+							<h5>TensorBoard</h5>
+							<p>
+							O Tensorflow possui um utilitário que pode exibir imagens do gráfo
+							</p>
+							<hr>
+							<h5>Espaços Reservados (Placeholders)</h5>
+							<p>
+							Através da função placeholder,
+							atribuimos um espaço de memória reservado a uma variavel que deve ser alimentada posteriormente.
+							</p>
+							<hr>
+							<h5>Somando</h5>
+							<p>
+							Podemos somar nós e varíaveis de dois jeitos:<br>
+							c_node = a + b<br>
+							tf.add(a,b)
+							</p>
 						<hr>
 						<H5>Fontes:</H5>
 						<p>
